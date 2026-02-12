@@ -19,3 +19,8 @@ class Seat:
         else:
             raise Exception("This seat is free")
           
+class Table:
+    def __init__(self, capacity: int = 4, seats: list):
+        self.capacity=capacity
+        self.seats=seats
+
