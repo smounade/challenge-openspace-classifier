@@ -24,3 +24,11 @@ class Table:
         self.capacity=capacity
         self.seats=seats
 
+    def has_free_spot(self):
+        has_free_spot=False
+        for seat in self.seats:
+            if seat.free:
+                has_free_spot=True
+                break
+        return has_free_spot
+            
