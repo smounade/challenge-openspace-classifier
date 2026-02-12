@@ -4,14 +4,14 @@ class Seat:
         self.occupant = occupant
 
     def set_occupant(self, name: str):
-        if self.free == True:
+        if self.free:
             self.occupant = name
             self.free = False
         else:
             raise Exception("Someone is already sitting here")
 
     def remove_occupant(self):
-        if self.free == False:
+        if not self.free:
             return_value=self.occupant
             self.occupant = None
             self.free = True
