@@ -1,3 +1,5 @@
+import random
+
 class Seat:
     def __init__(self, free: bool, occupant: str = None):
         self.free = free
@@ -32,3 +34,19 @@ class Table:
                 break
         return has_free_spot
             
+    def assign_seat(self, name: str):
+        seats=[]
+        for seat in self.seats:
+            if seat.free:
+                seats.append(seat)
+        random.choice(seats).set_occupant(name)
+
+    def left_capacity(self):
+        for seat in self.seats:
+            if not seat.free:
+                self.capacity-=1
+        return self.capacity
+
+            
+        
+        
