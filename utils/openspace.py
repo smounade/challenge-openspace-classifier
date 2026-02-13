@@ -8,8 +8,11 @@ class Openspace:
         self.number_of_tables=number_of_tables
   
     def organize(self, names: list):
-        for name in names:
-            table=random.choice(self.tables)
+        free_tables=[]
+        for table in self.tables:
             if table.has_free_spot:
-                table.assign_seat(name)
+                free_tables.append(table)
+        for name in names:
+            table=random.choice(free_tables)
+            table.assign_seat(name)
             
