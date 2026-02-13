@@ -26,7 +26,6 @@ class Openspace:
             print()
 
     def store(self, filename):
-        filename = "./utils/data_new.xlsx"
         file = open(filename, "w")
         file.write()
         file.close()
