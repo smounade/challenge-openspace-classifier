@@ -23,4 +23,11 @@ class Openspace:
                     print("free seat")
                 else:
                     print(f"seat occupied by {seat.occupant}")
+            print()
+
+    def store(self, filename):
+        filename = "./utils/data_new.xlsx"
+        file = open(filename, "w")
+        file.write()
+        file.close()
         
