@@ -16,3 +16,5 @@ class Openspace:
             table=random.choice(free_tables)
             table.assign_seat(name)
             
+    def display(self):
+        
