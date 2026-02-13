@@ -17,4 +17,10 @@ class Openspace:
             table.assign_seat(name)
             
     def display(self):
+        for table in self.tables:
+            for seat in table:
+                if seat.free:
+                    print("free seat")
+                else:
+                    print(f"seat occupied by {seat.occupant}")
         
