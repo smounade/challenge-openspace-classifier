@@ -1,6 +1,5 @@
-from table.py import Table
+
 import random
-from openpyxl import Workbook
 
 class Openspace:
 
@@ -21,7 +20,7 @@ class Openspace:
         display=[]
         for table in self.tables:
             table_list=[]
-            for seat in table:
+            for seat in table.seats:
                 if seat.free:
                     table_list.append("free seat")
                 else:
@@ -31,15 +30,10 @@ class Openspace:
         return display
 
     def store(self, filename):
-        # Create a workbook and select the active worksheet
-        wb = Workbook()
-        ws = wb.active
-
-        # Write data row by row
-        for row in self.display():
-            ws.append(row)
-
-        # Save the workbook to a file
-        wb.save("output.xlsx")
-
-        print("Data saved to output.xlsx")
+        with open(filename, "w", encoding="utf-8-sig") as file:
+            for table in self.tables:
+                for seat in table.seats:
+                    if not seat.free:
+                        file.write(seat.occupant + "\n")
+                    else:
+                        file.write("free seat\n")
