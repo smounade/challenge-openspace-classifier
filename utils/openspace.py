@@ -1,5 +1,6 @@
 from table.py import Table
 import random
+from openpyxl import Workbook
 
 class Openspace:
 
@@ -30,7 +31,15 @@ class Openspace:
         return display
 
     def store(self, filename):
-        file = open(filename, "w")
-        file.write()
-        file.close()
-        
+        # Create a workbook and select the active worksheet
+        wb = Workbook()
+        ws = wb.active
+
+        # Write data row by row
+        for row in self.display():
+            ws.append(row)
+
+        # Save the workbook to a file
+        wb.save("output.xlsx")
+
+        print("Data saved to output.xlsx")
