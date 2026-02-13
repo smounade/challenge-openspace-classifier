@@ -10,7 +10,4 @@ with open(filename, newline='', encoding='utf-8') as csvfile:
         openspace1.organize(row)
         #write your code here
 
-with open("colleagues.csv", "w", encoding="utf-8-sig") as file:
-    file.write("New Colleagues\n")
-    for name in new_collegues:
-        file.write(name + "\n")
+openspace1.display()
