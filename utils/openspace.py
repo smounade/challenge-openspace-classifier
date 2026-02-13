@@ -17,13 +17,17 @@ class Openspace:
             table.assign_seat(name)
             
     def display(self):
+        display=[]
         for table in self.tables:
+            table_list=[]
             for seat in table:
                 if seat.free:
-                    print("free seat")
+                    table_list.append("free seat")
                 else:
-                    print(f"seat occupied by {seat.occupant}")
-            print()
+                    table_list.append(f"seat occupied by {seat.occupant}")
+            display.append(table_list)
+        print(display)
+        return display
 
     def store(self, filename):
         file = open(filename, "w")
