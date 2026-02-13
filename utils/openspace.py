@@ -10,4 +10,6 @@ class Openspace:
     def organize(self, names: list):
         for name in names:
             table=random.choice(self.tables)
+            if table.has_free_spot:
+                
             
